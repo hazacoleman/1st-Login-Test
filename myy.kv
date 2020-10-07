@@ -1,0 +1,99 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+    
+<MainWindow>:  
+    name: "main"
+    
+    FloatLayout:
+        cols:1
+        
+        FloatLayout:
+            size: root.width, root.height/2
+        
+            Label:
+                text:"Login Here Please"
+                
+                
+                pos_hint: {"x":0.3, "top":0.95}
+                size_hint: 0.35, 0.15
+        
+            Label:
+                text:"Username: "
+                
+                pos_hint: {"x":0.1, "top":0.75}
+                size_hint: 0.35, 0.15
+                
+            TextInput:
+                id: Username
+                
+                multiline: False
+                pos_hint: {"x": 0.45 , "top":0.75}
+                size_hint: 0.4, 0.15
+                
+            Label:
+                text:"Password: "
+                
+                pos_hint: {"x":0.1, "top":0.55}
+                size_hint: 0.35, 0.15
+                
+            TextInput:
+                id: Password
+               
+                multiline: False
+                pos_hint: {"x": 0.45 , "top":0.55}
+                size_hint: 0.4, 0.15
+                    
+        Button:
+            pos_hint:{"x":0.2,"y":0.1}
+            size_hint: 0.6, 0.2
+            
+            text: "Submit"
+            on_release: 
+                app.attempt_login(Username.text, Password.text) 
+                root.manager.transition.direction = "left"
+                    
+<SecondWindow>:
+    name: "second"
+    
+    Label:
+        text:"Welcome Back Master Harry!"
+        
+        text_size: self.size
+        halign: 'right'
+        valign: 'middle'
+        
+        pos_hint: {"x":0.3, "top":0.7}
+        size_hint: 0.35, 0.15
+                
+    
+    Button:
+        pos_hint:{"x":0.2,"y":0.15}
+        size_hint: 0.6, 0.2
+        
+        text: "Go Back"
+        on_release: 
+            app.root.current = "main"
+            root.manager.transition.direction = "right"
+            
+<P>:
+    id:pop
+    
+    Label:
+        text: "Wrong Password, Try Again"
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":1}
+       
+       
+    
+        
+    
+    
+        
+        
+        
+            
+        
+       
+        
+        
